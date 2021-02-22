@@ -6,7 +6,7 @@ import { setModal, requestDelete } from '../../../Actions/Actions/Detail'
 
 import * as lib from '../../../Library/Library'
 
-import './Detail.css'
+import './Detail.scss'
 
 const mapStateToProps = (state) => ({
   modal: state.detail.modal,

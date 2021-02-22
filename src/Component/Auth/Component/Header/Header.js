@@ -7,7 +7,7 @@ import Add from '../../../../Library/Icons/Add'
 
 import { setModal } from '../../../../Actions/Actions/Payment'
 
-import './Header.css'
+import './Header.scss'
 
 const mapStateToProps = (state) => ({
   title: state.header.title,

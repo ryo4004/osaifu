@@ -10,7 +10,7 @@ import { setModal, setContent } from '../../../Actions/Actions/Detail'
 
 import * as lib from '../../../Library/Library'
 
-import './List.css'
+import './List.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.list.loading,

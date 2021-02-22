@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { changeUsername, requestChangeUsername } from '../../../../Actions/Actions/Setting'
 import { setTitle, setBack } from '../../../../Actions/Actions/Header'
 
-import './Username.css'
+import './Username.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.setting.loading,

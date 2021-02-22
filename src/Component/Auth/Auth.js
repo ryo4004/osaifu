@@ -14,7 +14,7 @@ import Navigation from './Component/Navigation/Navigation'
 import Detail from './Detail/Detail'
 import Tutorial from './Tutorial/Tutorial'
 
-import './Auth.css'
+import './Auth.scss'
 
 const mapStateToProps = () => ({})
 

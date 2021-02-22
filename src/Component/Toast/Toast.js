@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import './Toast.css'
+import './Toast.scss'
 
 const mapStateToProps = (state) => ({
   status: state.toast.status,

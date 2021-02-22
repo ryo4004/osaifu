@@ -5,7 +5,7 @@ import { setConnectMode, requestConnectPass, requestCopy, changeConnectPass, req
 import { setTitle, setBack } from '../../../../Actions/Actions/Header'
 
 import * as lib from '../../../../Library/Library'
-import './Connect.css'
+import './Connect.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.setting.loading,

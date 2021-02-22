@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
 
-import './Navigation.css'
+import './Navigation.scss'
 
 export default function Navigation () {
 

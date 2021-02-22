@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { changeOldPassword, changeNewPassword, requestChangePassword } from '../../../../Actions/Actions/Setting'
 import { setTitle, setBack } from '../../../../Actions/Actions/Header'
 
-import './Password.css'
+import './Password.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.setting.loading,

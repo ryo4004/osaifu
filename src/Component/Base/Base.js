@@ -8,7 +8,7 @@ import Signup from './Signup/Signup'
 import Logo from '../../Library/Logo/Logo'
 
 
-import './Base.css'
+import './Base.scss'
 
 const mapStateToProps = (state) => ({
   location: state.router.location

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { setModal } from '../../../Actions/Actions/Tutorial'
 
-import './Tutorial.css'
+import './Tutorial.scss'
 
 const mapStateToProps = (state) => ({
   modal: state.tutorial.modal

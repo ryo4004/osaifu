@@ -5,7 +5,7 @@ import { confirmAlert } from 'react-confirm-alert'
 import { changeDeletePassword, requestUserdelete, setError } from '../../../../Actions/Actions/Setting'
 import { setTitle, setBack } from '../../../../Actions/Actions/Header'
 
-import './Userdelete.css'
+import './Userdelete.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.setting.loading,

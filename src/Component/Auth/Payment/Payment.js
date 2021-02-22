@@ -16,7 +16,7 @@ import {
 
 import * as lib from '../../../Library/Library'
 
-import './Payment.css'
+import './Payment.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.payment.loading,

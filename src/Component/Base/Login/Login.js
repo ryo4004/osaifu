@@ -9,7 +9,7 @@ import {
   setError
 } from '../../../Actions/Actions/Login'
 
-import './Login.css'
+import './Login.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.login.loading,

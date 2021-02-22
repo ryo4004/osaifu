@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import {  requestDisconnect, setError } from '../../../../Actions/Actions/Setting'
 import { setTitle, setBack } from '../../../../Actions/Actions/Header'
 
-import './Disconnect.css'
+import './Disconnect.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.setting.loading,

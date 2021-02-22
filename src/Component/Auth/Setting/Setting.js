@@ -12,7 +12,7 @@ import Othername from './Othername/Othername'
 import Password from './Password/Password'
 import Userdelete from './Userdelete/Userdelete'
 
-import './Setting.css'
+import './Setting.scss'
 
 const mapStateToProps = () => ({})
 

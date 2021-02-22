@@ -10,7 +10,7 @@ import {
   setError
 } from '../../../Actions/Actions/Signup'
 
-import './Signup.css'
+import './Signup.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.signup.loading,

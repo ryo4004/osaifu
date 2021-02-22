@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { changeOsaifuname, requestChangeOsaifuname } from '../../../../Actions/Actions/Setting'
 import { setTitle, setBack } from '../../../../Actions/Actions/Header'
 
-import './Osaifuname.css'
+import './Osaifuname.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.setting.loading,

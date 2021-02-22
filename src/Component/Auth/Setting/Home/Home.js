@@ -10,7 +10,7 @@ import { setModal } from '../../../../Actions/Actions/Tutorial'
 
 import Forward from '../../../../Library/Icons/Forward'
 
-import './Home.css'
+import './Home.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.setting.loading,

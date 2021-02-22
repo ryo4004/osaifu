@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { changeRate, requestChangeRate } from '../../../../Actions/Actions/Setting'
 import { setTitle, setBack } from '../../../../Actions/Actions/Header'
 
-import './Rate.css'
+import './Rate.scss'
 
 const mapStateToProps = (state) => ({
   loading: state.setting.loading,
