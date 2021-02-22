@@ -7,9 +7,9 @@ import { loading, setStatus, setError } from '../Actions/Actions/Status'
 
 import * as lib from '../Library/Library'
 
-function* runRequestStatus () {
+function* runRequestStatus() {
   yield put(loading(true))
-  const send = {session: lib.getSession()}
+  const send = { session: lib.getSession() }
   const res = yield call(() => post('/status', send))
   yield put(loading(false))
   if (res.body.err) {
@@ -20,6 +20,6 @@ function* runRequestStatus () {
   }
 }
 
-export default function* watchRequestSession () {
+export default function* watchRequestSession() {
   yield takeLatest(ActionType.STATUS_REQUEST_STATUS, runRequestStatus)
 }

@@ -10,60 +10,60 @@ const initialState = {
   selfPayment: '',
   otherPayment: '',
   memo: '',
-  err: false
+  err: false,
 }
 
-export default function paymentReducer (state = initialState, action) {
+export default function paymentReducer(state = initialState, action) {
   switch (action.type) {
     case ActionType.PAYMENT_LOADING:
       return {
         ...state,
-        loading: action.payload.loading
+        loading: action.payload.loading,
       }
     case ActionType.PAYMENT_SET_MODAL:
       return {
         ...state,
-        modal: action.payload.modal
+        modal: action.payload.modal,
       }
     case ActionType.PAYMENT_SET_USE_DATE:
       return {
         ...state,
-        useDate: action.payload.useDate
+        useDate: action.payload.useDate,
       }
     case ActionType.PAYMENT_SET_DATE:
       return {
         ...state,
-        date: action.payload.date
+        date: action.payload.date,
       }
     case ActionType.PAYMENT_SET_PAYMENT:
       return {
         ...state,
-        payment: action.payload.payment
+        payment: action.payload.payment,
       }
     case ActionType.PAYMENT_SET_PAYMENT_CHECK:
       return {
         ...state,
-        paymentCheck: action.payload.paymentCheck
+        paymentCheck: action.payload.paymentCheck,
       }
     case ActionType.PAYMENT_SET_SELF_PAYMENT:
       return {
         ...state,
-        selfPayment: action.payload.selfPayment
+        selfPayment: action.payload.selfPayment,
       }
     case ActionType.PAYMENT_SET_OTHER_PAYMENT:
       return {
         ...state,
-        otherPayment: action.payload.otherPayment
+        otherPayment: action.payload.otherPayment,
       }
     case ActionType.PAYMENT_SET_MEMO:
       return {
         ...state,
-        memo: action.payload.memo
+        memo: action.payload.memo,
       }
     case ActionType.PAYMENT_SET_ERROR:
       return {
         ...state,
-        err: action.payload.err
+        err: action.payload.err,
       }
     default:
       return state

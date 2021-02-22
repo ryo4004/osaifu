@@ -12,24 +12,22 @@ import './Header.scss'
 const mapStateToProps = (state) => ({
   title: state.header.title,
   back: state.header.back,
-  add: state.header.add
+  add: state.header.add,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  setModal: (modal) => dispatch(setModal(modal))
+  setModal: (modal) => dispatch(setModal(modal)),
 })
 
-const Header = ({
-  title, back, add,
-  setModal
-}) => {
-
+const Header = ({ title, back, add, setModal }) => {
   const showBack = () => {
     if (!back) return
     return (
-      <div className='label back'>
+      <div className="label back">
         <Link to={back}>
-          <div className='back-icon'><Back /></div>
+          <div className="back-icon">
+            <Back />
+          </div>
           <span>戻る</span>
         </Link>
       </div>
@@ -39,9 +37,11 @@ const Header = ({
   const showAdd = () => {
     if (!add) return
     return (
-      <div className='label add'>
+      <div className="label add">
         <div onClick={() => setModal(true)}>
-          <div className='add-icon'><Add /></div>
+          <div className="add-icon">
+            <Add />
+          </div>
           {/* <span>追加</span> */}
         </div>
       </div>
@@ -49,7 +49,7 @@ const Header = ({
   }
 
   return (
-    <div className='header'>
+    <div className="header">
       {showBack()}
       <h2>{title}</h2>
       {showAdd()}

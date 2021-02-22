@@ -16,7 +16,7 @@ const App = () => {
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <Switch>
-          <Route path='/' component={Navigation} />
+          <Route path="/" component={Navigation} />
         </Switch>
       </ConnectedRouter>
     </Provider>

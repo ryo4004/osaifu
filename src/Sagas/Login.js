@@ -8,9 +8,9 @@ import { setUser } from '../Actions/Actions/Session'
 
 import * as lib from '../Library/Library'
 
-function* runRequestLogin () {
+function* runRequestLogin() {
   const state = yield select()
-  if (!state.login.userid || !state.login.password) return yield put(setError({type: 'blankTextbox'}))
+  if (!state.login.userid || !state.login.password) return yield put(setError({ type: 'blankTextbox' }))
   yield put(loading(true))
   yield put(setError(false))
   const send = {
@@ -18,7 +18,7 @@ function* runRequestLogin () {
     password: state.login.password,
     clientid: lib.getClientid(),
     userAgent: window.navigator.userAgent,
-    version: lib.version
+    version: lib.version,
   }
   const res = yield call(() => post('/login', send))
   yield put(loading(false))
@@ -31,10 +31,10 @@ function* runRequestLogin () {
     yield put(setUser(res.body.user))
     yield call(() => lib.updateToken(res.body.token))
     yield call(() => lib.updateUserid(res.body.user.userid))
-    yield put(replace('/list'))  
+    yield put(replace('/list'))
   }
 }
 
-export default function* watchRequestLogin () {
+export default function* watchRequestLogin() {
   yield takeLatest(ActionType.LOGIN_REQUEST_LOGIN_REQUEST, runRequestLogin)
 }

@@ -2,21 +2,21 @@ import * as ActionType from '../Constants/Toast'
 
 export const showToast = (message) => ({
   type: ActionType.TOAST_SHOW_TOAST,
-  payload: { message }
+  payload: { message },
 })
 
 export const show = () => ({
   type: ActionType.TOAST_SHOW,
   payload: {
-    status: true
-  }
+    status: true,
+  },
 })
 
 export const hide = () => ({
   type: ActionType.TOAST_HIDE,
   payload: {
-    hide: true
-  }
+    hide: true,
+  },
 })
 
 export const end = () => ({
@@ -24,6 +24,6 @@ export const end = () => ({
   payload: {
     status: false,
     message: '',
-    hide: false
-  }
+    hide: false,
+  },
 })

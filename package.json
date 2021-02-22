@@ -26,10 +26,14 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "REACT_APP_MODE=development react-scripts start",
+    "build": "REACT_APP_MODE=development react-scripts build",
+    "build-prod": "REACT_APP_MODE=production react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src --config .eslintrc.json",
+    "typecheck": "tsc --noEmit",
+    "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +54,9 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^5.0.0"
+    "eslint": "^7.20.0",
+    "eslint-plugin-react": "^7.22.0",
+    "node-sass": "^5.0.0",
+    "prettier": "^2.2.1"
   }
 }

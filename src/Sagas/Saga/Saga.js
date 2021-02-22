@@ -10,7 +10,7 @@ import Detail from '../Detail'
 import Toast from '../Toast'
 import Setting from '../Setting'
 
-export default function* rootSaga () {
+export default function* rootSaga() {
   yield all([
     fork(Login),
     fork(Signup),
@@ -20,6 +20,6 @@ export default function* rootSaga () {
     fork(List),
     fork(Detail),
     fork(Toast),
-    fork(Setting)
+    fork(Setting),
   ])
 }

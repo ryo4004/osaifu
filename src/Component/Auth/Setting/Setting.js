@@ -20,18 +20,18 @@ const mapDispatchToProps = () => ({})
 
 const Setting = () => {
   return (
-    <div className='setting contents'>
-      <div className='contents-inner'>
+    <div className="setting contents">
+      <div className="contents-inner">
         <Switch>
-          <Route path='/setting' exact component={Home} />
-          <Route path='/setting/osaifuname' component={Osaifuname} />
-          <Route path='/setting/rate' component={Rate} />
-          <Route path='/setting/connect' component={Connect} />
-          <Route path='/setting/disconnect' component={Disconnect} />
-          <Route path='/setting/username' component={Username} />
-          <Route path='/setting/othername' component={Othername} />
-          <Route path='/setting/password' component={Password} />
-          <Route path='/setting/userdelete' component={Userdelete} />
+          <Route path="/setting" exact component={Home} />
+          <Route path="/setting/osaifuname" component={Osaifuname} />
+          <Route path="/setting/rate" component={Rate} />
+          <Route path="/setting/connect" component={Connect} />
+          <Route path="/setting/disconnect" component={Disconnect} />
+          <Route path="/setting/username" component={Username} />
+          <Route path="/setting/othername" component={Othername} />
+          <Route path="/setting/password" component={Password} />
+          <Route path="/setting/userdelete" component={Userdelete} />
         </Switch>
       </div>
     </div>

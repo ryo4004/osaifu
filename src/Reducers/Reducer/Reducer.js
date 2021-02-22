@@ -15,21 +15,22 @@ import detailReducer from '../Detail'
 import settingReducer from '../Setting'
 import tutorialReducer from '../Tutorial'
 
-export default (history) => combineReducers({
-  session: sessionReducer,
-  status: statusReducer,
-  toast: toastReducer,
+export default (history) =>
+  combineReducers({
+    session: sessionReducer,
+    status: statusReducer,
+    toast: toastReducer,
 
-  login: loginReducer,
-  signup: signupReducer,
+    login: loginReducer,
+    signup: signupReducer,
 
-  header: headerReducer,
-  payment: paymentReducer,
-  list: listReducer,
-  detail: detailReducer,
-  setting: settingReducer,
-  tutorial: tutorialReducer,
+    header: headerReducer,
+    payment: paymentReducer,
+    list: listReducer,
+    detail: detailReducer,
+    setting: settingReducer,
+    tutorial: tutorialReducer,
 
-  // The key must be router
-  router: connectRouter(history)
-})
+    // The key must be router
+    router: connectRouter(history),
+  })

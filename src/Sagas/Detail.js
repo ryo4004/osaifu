@@ -9,11 +9,11 @@ import { showToast } from '../Actions/Actions/Toast'
 
 import * as lib from '../Library/Library'
 
-function* runRequestDelete (action) {
+function* runRequestDelete(action) {
   yield put(loading(true))
   const send = {
     session: lib.getSession(),
-    id: action.payload.id
+    id: action.payload.id,
   }
   const res = yield call(() => post('/delete', send))
   yield put(loading(false))
@@ -27,6 +27,6 @@ function* runRequestDelete (action) {
   }
 }
 
-export default function* watchRequestList () {
+export default function* watchRequestList() {
   yield takeLatest(ActionType.DETAIL_REQUEST_DELETE, runRequestDelete)
 }

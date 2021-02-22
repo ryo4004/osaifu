@@ -16,12 +16,12 @@
       cursor: pointer;
 
       &:hover {
-        background: rgba(243,115,53,.2);
+        background: rgba(243, 115, 53, 0.2);
       }
 
       &.active {
-        background: rgba(243,115,53,.1);
-        border-bottom: 2px solid rgba(243,115,53,.8);
+        background: rgba(243, 115, 53, 0.1);
+        border-bottom: 2px solid rgba(243, 115, 53, 0.8);
       }
     }
   }
@@ -29,8 +29,8 @@
   .connect-pass {
     margin: 8px;
     padding: 8px;
-    border: .55px solid #ccc;
-    border-radius: .25rem;
+    border: 0.55px solid #ccc;
+    border-radius: 0.25rem;
     color: #333;
 
     .pass {
@@ -40,12 +40,12 @@
 
       span {
         font-size: 1.4rem;
-        font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;  
+        font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
       }
 
       div {
         padding: 8px;
-        border-radius: .25rem;
+        border-radius: 0.25rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -58,15 +58,15 @@
           width: 16px;
           height: 16px;
           font-size: 1rem;
-        }  
+        }
       }
     }
 
     .expire {
       display: flex;
       align-items: center;
-      font-size: .9rem;
-      
+      font-size: 0.9rem;
+
       label {
         color: #666;
       }

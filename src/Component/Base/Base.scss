@@ -34,7 +34,8 @@
     }
   }
 
-  .signup, .login {
+  .signup,
+  .login {
     max-width: 300px;
     width: 95%;
     margin: 0 auto;
@@ -44,32 +45,33 @@
       font-weight: normal;
     }
 
-    input[type="text"],
-    input[type="password"] {
+    input[type='text'],
+    input[type='password'] {
       -webkit-appearance: none;
       display: block;
       width: calc(100% - 20px - 2px);
       margin: 16px 0;
       padding: 8px 10px;
       border: 1px solid #ccc;
-      border-radius: .25rem;
+      border-radius: 0.25rem;
       color: #333;
       font-size: 17px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', meiryo, sans-serif;
-      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium',
+        meiryo, sans-serif;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
       &::placeholder {
         color: #999;
       }
 
       &:focus {
-        border: solid 1px rgba(243,115,53,1);
-        box-shadow: 0 0 0 0.2rem rgba(243,115,53,.25);
+        border: solid 1px rgba(243, 115, 53, 1);
+        box-shadow: 0 0 0 0.2rem rgba(243, 115, 53, 0.25);
         outline: 0;
       }
 
       &:active {
-        border: solid 1px rgba(243,115,53,1);
+        border: solid 1px rgba(243, 115, 53, 1);
       }
     }
 
@@ -90,10 +92,10 @@
       margin: 16px 0;
       padding: 1rem 12px;
       border: 1px solid #f5c6cb;
-      border-radius: .25rem;
+      border-radius: 0.25rem;
       background: #f8d7da;
       color: #721c24;
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
 
     button {
@@ -102,26 +104,29 @@
       height: 44px;
       padding: 6px 18px;
       border: none;
-      border-radius: .25rem;
-      background: rgba(243,115,53,.6);
+      border-radius: 0.25rem;
+      background: rgba(243, 115, 53, 0.6);
       font-size: 1rem;
       color: #fff;
       cursor: pointer;
       outline: none;
-      transition: all ease-in-out .2s;
+      transition: all ease-in-out 0.2s;
 
       &:focus {
         // box-shadow: 0 0 0 0.2rem rgba(243,115,53,.25);
       }
 
-      &:hover, &:active, &:focus {
-        background: rgba(243,115,53,.8);
-        transition: all ease-in-out .1s;
+      &:hover,
+      &:active,
+      &:focus {
+        background: rgba(243, 115, 53, 0.8);
+        transition: all ease-in-out 0.1s;
         color: #fff;
       }
 
-      &:active, &:focus {
-        box-shadow: 0 0 0 0.2rem rgba(243,115,53,.25);
+      &:active,
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(243, 115, 53, 0.25);
       }
 
       &:disabled {
