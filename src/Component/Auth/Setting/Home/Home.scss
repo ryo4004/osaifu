@@ -5,35 +5,37 @@
   .loading {
     position: absolute;
     display: inline-block;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   .status {
     margin: 8px;
-    border: .55px solid #ccc;
-    border-radius: .25rem;
+    border: 0.55px solid #ccc;
+    border-radius: 0.25rem;
 
     & > label {
       display: block;
       padding: 8px;
-      border-bottom: .55px solid #ccc;
-      font-size: .9rem;
+      border-bottom: 0.55px solid #ccc;
+      font-size: 0.9rem;
       background: #eee;
     }
 
-    .user, .osaifu {
+    .user,
+    .osaifu {
       padding: 8px;
 
-      & > div, div.pair-summary {
+      & > div,
+      div.pair-summary {
         display: flex;
         align-items: center;
         color: #333;
-  
+
         label {
-          font-size: .9rem;
+          font-size: 0.9rem;
           color: #666;
         }
-  
+
         span {
           flex: 2;
           text-align: right;
@@ -61,23 +63,23 @@
 
       .key {
         margin-left: 6px;
-        font-size: .8rem;
+        font-size: 0.8rem;
 
         span:first-child {
           padding: 2px 6px;
-          border: .55px solid #ccc;
-          border-radius: .25rem 0 0 .25rem;
+          border: 0.55px solid #ccc;
+          border-radius: 0.25rem 0 0 0.25rem;
           color: #666;
           background: #eee;
         }
 
         span:last-child {
           padding: 2px 6px;
-          border-top: .55px solid #ccc;
+          border-top: 0.55px solid #ccc;
           border-left: 0;
-          border-right: .55px solid #ccc;
-          border-bottom: .55px solid #ccc;
-          border-radius: 0 .25rem .25rem 0;
+          border-right: 0.55px solid #ccc;
+          border-bottom: 0.55px solid #ccc;
+          border-radius: 0 0.25rem 0.25rem 0;
           font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
         }
       }
@@ -91,20 +93,20 @@
     label {
       display: block;
       margin: 0 8px;
-      font-size: .9rem;
+      font-size: 0.9rem;
       color: #333;
     }
   }
-  
+
   ul {
     max-width: 600px;
     margin: 0 auto 16px;
-    border-top: .55px solid #c8c7cc;
+    border-top: 0.55px solid #c8c7cc;
 
     li {
       a {
         display: block;
-        border-bottom: .55px solid #c8c7cc;
+        border-bottom: 0.55px solid #c8c7cc;
         text-decoration: none;
         color: #333;
         cursor: pointer;
@@ -146,25 +148,26 @@
         border-top: 0;
         border-left: 0;
         border-right: 0;
-        border-bottom: .55px solid #c8c7cc;
+        border-bottom: 0.55px solid #c8c7cc;
         background: #fff;
-        color: rgba(182,0,5,1);
+        color: rgba(182, 0, 5, 1);
         font-size: 16px;
         text-align: center;
         cursor: pointer;
-    
-        &:hover, &:focus {
+
+        &:hover,
+        &:focus {
           background: #eee;
         }
-    
+
         &:active {
           background: #e3e3e3;
         }
-    
+
         i {
-          margin-right: .2em;
+          margin-right: 0.2em;
         }
-    
+
         &.disabled {
           color: #888;
           background: #fff;

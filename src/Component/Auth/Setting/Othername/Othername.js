@@ -10,21 +10,17 @@ const mapStateToProps = (state) => ({
   loading: state.setting.loading,
   othername: state.setting.othername,
   err: state.setting.err,
-  user: state.session.user
+  user: state.session.user,
 })
 
 const mapDispatchToProps = (dispatch) => ({
   changeOthername: (name) => dispatch(changeOthername(name)),
   requestChangeOthername: () => dispatch(requestChangeOthername()),
   setTitle: (title) => dispatch(setTitle(title)),
-  setBack: (back) => dispatch(setBack(back))
+  setBack: (back) => dispatch(setBack(back)),
 })
 
-const Othername = ({
-  othername, user,
-  changeOthername, requestChangeOthername, setTitle, setBack
-}) => {
-
+const Othername = ({ othername, user, changeOthername, requestChangeOthername, setTitle, setBack }) => {
   useEffect(() => {
     setTitle('相手の名前の変更')
     setBack('/setting')
@@ -39,10 +35,15 @@ const Othername = ({
   }
 
   return (
-    <div className='setting-othername'>
-      <div className='form'>
-      <label>相手の表示名</label>
-        <input type='text' value={othername} onChange={(e) => changeOthername(e.target.value)} onKeyPress={(e) => keyPress(e)} />
+    <div className="setting-othername">
+      <div className="form">
+        <label>相手の表示名</label>
+        <input
+          type="text"
+          value={othername}
+          onChange={(e) => changeOthername(e.target.value)}
+          onKeyPress={(e) => keyPress(e)}
+        />
         <button onClick={() => requestChangeOthername()}>送信</button>
       </div>
     </div>

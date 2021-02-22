@@ -2,13 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import {
-  changeUserid,
-  changePassword,
-  changeAgreement,
-  requestSignup,
-  setError
-} from '../../../Actions/Actions/Signup'
+import { changeUserid, changePassword, changeAgreement, requestSignup, setError } from '../../../Actions/Actions/Signup'
 
 import './Signup.scss'
 
@@ -17,7 +11,7 @@ const mapStateToProps = (state) => ({
   userid: state.signup.userid,
   password: state.signup.password,
   agreement: state.signup.agreement,
-  err: state.signup.err
+  err: state.signup.err,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -25,14 +19,21 @@ const mapDispatchToProps = (dispatch) => ({
   changePassword: (password) => dispatch(changePassword(password)),
   changeAgreement: (agreement) => dispatch(changeAgreement(agreement)),
   requestSignup: () => dispatch(requestSignup.request()),
-  setError: (err) => dispatch(setError(err))
+  setError: (err) => dispatch(setError(err)),
 })
 
 const Signup = ({
-  loading, userid, password, agreement, err,
-  changeUserid, changePassword, changeAgreement, requestSignup, setError
+  loading,
+  userid,
+  password,
+  agreement,
+  err,
+  changeUserid,
+  changePassword,
+  changeAgreement,
+  requestSignup,
+  setError,
 }) => {
-
   useEffect(() => {
     setError(false)
     return () => setError(false)
@@ -65,25 +66,42 @@ const Signup = ({
       default:
         message = 'error: ' + err.type
     }
-    return (
-      <div className='err'>{message}</div>
-    )
+    return <div className="err">{message}</div>
   }
 
   const buttonLabel = loading ? '読み込み中' : '登録する'
 
   return (
-    <div className='signup'>
+    <div className="signup">
       <div>
         <h2>アカウントの新規作成</h2>
-        <input type='text' value={userid} onChange={(e) => changeUserid(e.target.value)} placeholder='ユーザ名' />
-        <input type='password' value={password} onChange={(e) => changePassword(e.target.value)} placeholder='パスワード' />
-        <div className='agreement'>
-          <input type='checkbox' id='agreement' name='agreement' checked={agreement} onChange={() => changeAgreement(!agreement)} /><label htmlFor='agreement'><a href='https://osaifu.zatsuzen.com/terms'>利用規約</a>および<a href='https://osaifu.zatsuzen.com/policy'>プライバシーポリシー</a>に同意します</label>
+        <input type="text" value={userid} onChange={(e) => changeUserid(e.target.value)} placeholder="ユーザ名" />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => changePassword(e.target.value)}
+          placeholder="パスワード"
+        />
+        <div className="agreement">
+          <input
+            type="checkbox"
+            id="agreement"
+            name="agreement"
+            checked={agreement}
+            onChange={() => changeAgreement(!agreement)}
+          />
+          <label htmlFor="agreement">
+            <a href="https://osaifu.zatsuzen.com/terms">利用規約</a>および
+            <a href="https://osaifu.zatsuzen.com/policy">プライバシーポリシー</a>に同意します
+          </label>
         </div>
         {showError()}
-        <button onClick={() => requestSignup()} onTouchStart={() => {}}>{buttonLabel}</button>
-        <div className='login-account'>作成済みの方は<Link to='/login'>こちら</Link></div>
+        <button onClick={() => requestSignup()} onTouchStart={() => {}}>
+          {buttonLabel}
+        </button>
+        <div className="login-account">
+          作成済みの方は<Link to="/login">こちら</Link>
+        </div>
       </div>
     </div>
   )

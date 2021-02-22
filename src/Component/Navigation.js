@@ -15,9 +15,9 @@ const Navigation = () => {
     <React.Fragment>
       <Toast />
       <Switch>
-        <Route path='/login' component={Base} />
-        <Route path='/signup' component={Base} />
-        <Route path='/' component={Auth} />
+        <Route path="/login" component={Base} />
+        <Route path="/signup" component={Base} />
+        <Route path="/" component={Auth} />
       </Switch>
     </React.Fragment>
   )

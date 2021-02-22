@@ -8,9 +8,9 @@ import { loading, setUser, setError } from '../Actions/Actions/Session'
 
 import * as lib from '../Library/Library'
 
-function* runRequestSession () {
+function* runRequestSession() {
   yield put(loading(true))
-  const send = {session: lib.getSession()}
+  const send = { session: lib.getSession() }
   const res = yield call(() => post('/auth', send))
   yield put(loading(false))
   if (res.body.err) {
@@ -23,9 +23,9 @@ function* runRequestSession () {
   }
 }
 
-function* runRequestLogout () {
+function* runRequestLogout() {
   yield put(loading(true))
-  const send = {session: lib.getSession()}
+  const send = { session: lib.getSession() }
   yield call(() => post('/logout', send))
   yield put(loading(false))
   yield put(setUser(false))
@@ -33,8 +33,7 @@ function* runRequestLogout () {
   yield put(replace('/login'))
 }
 
-export default function* watchRequestSession () {
+export default function* watchRequestSession() {
   yield takeLatest(ActionType.SESSION_REQUEST_AUTH, runRequestSession)
   yield takeLatest(ActionType.SESSION_REQUEST_LOGOUT, runRequestLogout)
 }
-

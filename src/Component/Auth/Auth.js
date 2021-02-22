@@ -20,13 +20,10 @@ const mapStateToProps = () => ({})
 
 const mapDispatchToProps = (dispatch) => ({
   requestAuth: () => dispatch(requestAuth()),
-  requestStatus: () => dispatch(requestStatus())
+  requestStatus: () => dispatch(requestStatus()),
 })
 
-const Auth = ({
-  requestAuth, requestStatus
-}) => {
-
+const Auth = ({ requestAuth, requestStatus }) => {
   useEffect(() => {
     requestAuth()
     requestStatus()
@@ -34,11 +31,11 @@ const Auth = ({
 
   return (
     <React.Fragment>
-      <div className='auth'>
+      <div className="auth">
         <Header />
         <Switch>
-          <Route path='/list' component={List} />
-          <Route path='/setting' component={Setting} />
+          <Route path="/list" component={List} />
+          <Route path="/setting" component={Setting} />
         </Switch>
       </div>
       <Navigation />

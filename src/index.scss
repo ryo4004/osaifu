@@ -3,7 +3,8 @@ body {
   padding: 0;
   line-height: 1.6;
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', meiryo, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium',
+    meiryo, sans-serif;
 }
 
 html {
@@ -19,7 +20,7 @@ html {
 }
 
 * {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
 }
 
@@ -34,9 +35,15 @@ a {
 }
 
 // Forms
-input[type="text"], input[type="address"], input[type="password"], input[type="date"], input[type="time"], textarea {
+input[type='text'],
+input[type='address'],
+input[type='password'],
+input[type='date'],
+input[type='time'],
+textarea {
   -webkit-appearance: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', meiryo, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium',
+    meiryo, sans-serif;
 }
 
 // textarea {
@@ -71,7 +78,7 @@ input[type="text"], input[type="address"], input[type="password"], input[type="d
   right: 0;
   bottom: 0;
   z-index: 10;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   -ms-align-items: center;
@@ -125,7 +132,6 @@ input[type="text"], input[type="address"], input[type="password"], input[type="d
   }
 }
 .react-confirm-alert {
-
   .alert {
     width: 270px;
     padding: 0;

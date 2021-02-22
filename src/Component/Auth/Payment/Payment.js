@@ -11,7 +11,7 @@ import {
   setOtherPayment,
   setMemo,
   sendPayment,
-  setError
+  setError,
 } from '../../../Actions/Actions/Payment'
 
 import * as lib from '../../../Library/Library'
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => ({
   sessionLoading: state.session.loading,
   user: state.session.user,
   statusLoading: state.status.loading,
-  status: state.status.status
+  status: state.status.status,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -46,14 +46,32 @@ const mapDispatchToProps = (dispatch) => ({
   setOtherPayment: (otherPayment) => dispatch(setOtherPayment(otherPayment)),
   setMemo: (memo) => dispatch(setMemo(memo)),
   sendPayment: () => dispatch(sendPayment()),
-  setError: (err) => dispatch(setError(err))
+  setError: (err) => dispatch(setError(err)),
 })
 
 const Payment = ({
-  loading, modal, useDate, date, payment, paymentCheck, selfPayment, otherPayment, memo, err, user, status,
-  setModal, setUseDate, setDate, setPayment, setPaymentCheck, setSelfPayment, setOtherPayment, setMemo, sendPayment
+  loading,
+  modal,
+  useDate,
+  date,
+  payment,
+  paymentCheck,
+  selfPayment,
+  otherPayment,
+  memo,
+  err,
+  user,
+  status,
+  setModal,
+  setUseDate,
+  setDate,
+  setPayment,
+  setPaymentCheck,
+  setSelfPayment,
+  setOtherPayment,
+  setMemo,
+  sendPayment,
 }) => {
-
   useEffect(() => {
     if (modal) {
       focus()
@@ -63,18 +81,24 @@ const Payment = ({
 
   let input = React.createRef()
 
-  function focus () {
+  function focus() {
     input.current.focus()
   }
-  
+
   const resetDate = () => {
     const time = new Date()
-    setDate(time.getFullYear() + '-' + ('00' + (time.getMonth() + 1)).slice(-2) + '-' + ('00' + time.getDate()).slice(-2))
+    setDate(
+      time.getFullYear() + '-' + ('00' + (time.getMonth() + 1)).slice(-2) + '-' + ('00' + time.getDate()).slice(-2)
+    )
     setUseDate(false)
   }
 
   const changeValue = (type, value) => {
-    const validValue = value.replace(/[０-９]/g, (s) => {return String.fromCharCode(s.charCodeAt(0)-0xFEE0)}).replace(/[^0-9]/g, '')
+    const validValue = value
+      .replace(/[０-９]/g, (s) => {
+        return String.fromCharCode(s.charCodeAt(0) - 0xfee0)
+      })
+      .replace(/[^0-9]/g, '')
     if (value && !isNaN(validValue)) {
       calcEachPayment(type, validValue)
       if (type === 'payment') {
@@ -150,10 +174,12 @@ const Payment = ({
   const showUseDate = () => {
     if (!useDate) return
     return (
-      <div className='use-date'>
-        <input type='checkbox' id='date' onChange={() => updateUseDate()} checked={useDate === true} />
-        <label htmlFor='date'><i className='fas fa-times-circle'></i></label>
-      </div>  
+      <div className="use-date">
+        <input type="checkbox" id="date" onChange={() => updateUseDate()} checked={useDate === true} />
+        <label htmlFor="date">
+          <i className="fas fa-times-circle"></i>
+        </label>
+      </div>
     )
   }
 
@@ -172,9 +198,7 @@ const Payment = ({
       default:
         message = 'error: ' + err.type
     }
-    return (
-      <div className='err'>{message}</div>
-    )
+    return <div className="err">{message}</div>
   }
 
   const modalClass = modal ? ' open' : ' close'
@@ -188,66 +212,77 @@ const Payment = ({
   const buttonLabel = loading ? '読み込み中' : '登録'
 
   return (
-    <div className='payment contents'>
+    <div className="payment contents">
       <div className={'modal-contents' + modalClass}>
         <header>
-          <button className='cancel' onClick={() => setModal(false)}><label>キャンセル</label></button>
+          <button className="cancel" onClick={() => setModal(false)}>
+            <label>キャンセル</label>
+          </button>
           <h2>支払い</h2>
-          <button className='add' onClick={() => sendPayment()} disabled={disabledPayment || disabledLoading}><label>{buttonLabel}</label></button>
+          <button className="add" onClick={() => sendPayment()} disabled={disabledPayment || disabledLoading}>
+            <label>{buttonLabel}</label>
+          </button>
         </header>
-        <div className='contents'>
-          <div className='contents-inner-modal'>
-            <div className='form'>
+        <div className="contents">
+          <div className="contents-inner-modal">
+            <div className="form">
               <div className={'date' + dateClass}>
                 <label>日付</label>
-                <input type='date' value={date} onChange={(e) => updateDate(e.target.value)} disabled={disabledLoading} />
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => updateDate(e.target.value)}
+                  disabled={disabledLoading}
+                />
                 {showUseDate()}
               </div>
-              <div className='payment'>
+              <div className="payment">
                 <label className={inputClass}>支払額</label>
                 <div>
                   <input
                     ref={input}
-                    type='text'
+                    type="text"
                     value={String(lib.addSeparator(payment))}
                     onChange={(e) => changeValue('payment', e.target.value)}
                     onKeyPress={(e) => keyPress(e)}
-                    pattern='\d*'
-                    placeholder='0'
+                    pattern="\d*"
+                    placeholder="0"
                     disabled={disabledLoading}
                   />
                   <span>円</span>
                 </div>
               </div>
 
-              <div className='memo'>
+              <div className="memo">
                 <label>メモ</label>
                 <input
-                  type='text'
+                  type="text"
                   value={memo}
                   onChange={(e) => setMemo(e.target.value)}
                   onKeyPress={(e) => keyPress(e)}
-                  placeholder='未入力'
+                  placeholder="未入力"
                   disabled={disabledLoading}
                 />
               </div>
 
-              <div className='each-payment'>
+              <div className="each-payment">
                 <label>支払分担</label>
                 <div>
                   <label>{selfName}</label>
-                  <div className='payment-check'>
-                    <input type='radio' id='self' onChange={(e) => updateCheck(e)} checked={paymentCheck === 'self'} />
-                    <label htmlFor='self' className='self'>全額</label>
+                  <div className="payment-check">
+                    <input type="radio" id="self" onChange={(e) => updateCheck(e)} checked={paymentCheck === 'self'} />
+                    <label htmlFor="self" className="self">
+                      全額
+                    </label>
                   </div>
-                  <div className='self-payment'>
+                  <div className="self-payment">
                     <input
-                      type='text'
+                      type="text"
                       value={String(lib.addSeparator(selfPayment))}
                       onChange={(e) => changeValue('selfPayment', e.target.value)}
                       onKeyPress={(e) => keyPress(e)}
-                      pattern='\d*'
-                      placeholder='0'
+                      pattern="\d*"
+                      placeholder="0"
                       disabled={disabledPayment || disabledLoading}
                     />
                     <span>円</span>
@@ -255,18 +290,25 @@ const Payment = ({
                 </div>
                 <div>
                   <label>{otherName}</label>
-                  <div className='payment-check'>
-                    <input type='radio' id='other' onChange={(e) => updateCheck(e)} checked={paymentCheck === 'other'} />
-                    <label htmlFor='other' className='other'>全額</label>
-                  </div>
-                  <div className='other-payment'>
+                  <div className="payment-check">
                     <input
-                      type='text'
+                      type="radio"
+                      id="other"
+                      onChange={(e) => updateCheck(e)}
+                      checked={paymentCheck === 'other'}
+                    />
+                    <label htmlFor="other" className="other">
+                      全額
+                    </label>
+                  </div>
+                  <div className="other-payment">
+                    <input
+                      type="text"
                       value={String(lib.addSeparator(otherPayment))}
                       onChange={(e) => changeValue('otherPayment', e.target.value)}
                       onKeyPress={(e) => keyPress(e)}
-                      pattern='\d*'
-                      placeholder='0'
+                      pattern="\d*"
+                      placeholder="0"
                       disabled={disabledPayment || disabledLoading}
                     />
                     <span>円</span>
@@ -276,10 +318,15 @@ const Payment = ({
 
               {showError()}
 
-              <div className='button'>
-                <button onClick={() => sendPayment()} disabled={disabledPayment || disabledLoading} onTouchStart={() => {}}>{buttonLabel}</button>
+              <div className="button">
+                <button
+                  onClick={() => sendPayment()}
+                  disabled={disabledPayment || disabledLoading}
+                  onTouchStart={() => {}}
+                >
+                  {buttonLabel}
+                </button>
               </div>
-
             </div>
           </div>
         </div>

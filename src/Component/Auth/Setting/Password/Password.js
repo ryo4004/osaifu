@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
   loading: state.setting.loading,
   oldPassword: state.setting.oldPassword,
   newPassword: state.setting.newPassword,
-  err: state.setting.err
+  err: state.setting.err,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,14 +18,18 @@ const mapDispatchToProps = (dispatch) => ({
   changeNewPassword: (newPassword) => dispatch(changeNewPassword(newPassword)),
   requestChangePassword: () => dispatch(requestChangePassword()),
   setTitle: (title) => dispatch(setTitle(title)),
-  setBack: (back) => dispatch(setBack(back))
+  setBack: (back) => dispatch(setBack(back)),
 })
 
 const Password = ({
-  oldPassword, newPassword,
-  changeOldPassword, changeNewPassword, requestChangePassword, setTitle, setBack
+  oldPassword,
+  newPassword,
+  changeOldPassword,
+  changeNewPassword,
+  requestChangePassword,
+  setTitle,
+  setBack,
 }) => {
-
   useEffect(() => {
     setTitle('パスワードの変更')
     setBack('/setting')
@@ -39,12 +43,22 @@ const Password = ({
   }
 
   return (
-    <div className='setting-password'>
-      <div className='form'>
+    <div className="setting-password">
+      <div className="form">
         <label>古いパスワード</label>
-        <input type='password' value={oldPassword} onChange={(e) => changeOldPassword(e.target.value)} onKeyPress={(e) => keyPress(e)} />
+        <input
+          type="password"
+          value={oldPassword}
+          onChange={(e) => changeOldPassword(e.target.value)}
+          onKeyPress={(e) => keyPress(e)}
+        />
         <label>新しいパスワード</label>
-        <input type='password' value={newPassword} onChange={(e) => changeNewPassword(e.target.value)} onKeyPress={(e) => keyPress(e)} />
+        <input
+          type="password"
+          value={newPassword}
+          onChange={(e) => changeNewPassword(e.target.value)}
+          onKeyPress={(e) => keyPress(e)}
+        />
         <button onClick={() => requestChangePassword()}>送信</button>
       </div>
     </div>

@@ -2,31 +2,31 @@ import uuidv1 from 'uuid/v1'
 
 export const version = '0.0.1'
 
-export function getClientid () {
+export function getClientid() {
   if (window.localStorage.clientid) return window.localStorage.clientid
   const clientid = uuidv1().split('-').join('')
   window.localStorage.setItem('clientid', clientid)
   return clientid
 }
 
-export function updateToken (token) {
+export function updateToken(token) {
   window.localStorage.setItem('token', token)
 }
 
-export function updateUserid (userid) {
+export function updateUserid(userid) {
   window.localStorage.setItem('userid', userid)
 }
 
-export function getSession () {
+export function getSession() {
   return {
     userid: window.localStorage.userid,
     clientid: getClientid(),
     clientToken: window.localStorage.token,
-    version
+    version,
   }
 }
 
-export function unixDateTime (timestamp) {
+export function unixDateTime(timestamp) {
   const date = new Date(parseInt(timestamp))
   var Y = date.getFullYear()
   var m = ('0' + (date.getMonth() + 1)).slice(-2)
@@ -37,26 +37,26 @@ export function unixDateTime (timestamp) {
   return Y + '-' + m + '-' + d + 'T' + H + ':' + i + ':' + s
 }
 
-export function unixDate (timestamp) {
+export function unixDate(timestamp) {
   var d = new Date(parseInt(timestamp))
   var year = d.getFullYear()
   var month = d.getMonth() + 1
   var day = d.getDate()
-  return(year + '-' + month + '-' + day)
+  return year + '-' + month + '-' + day
 }
 
-export function unixTime (timestamp) {
+export function unixTime(timestamp) {
   var d = new Date(parseInt(timestamp))
   var hour = ('0' + d.getHours()).slice(-2)
-  var min  = ('0' + d.getMinutes()).slice(-2)
-  return(hour + ':' + min);
+  var min = ('0' + d.getMinutes()).slice(-2)
+  return hour + ':' + min
 }
 
-export function addSeparator (num) {
+export function addSeparator(num) {
   return num.toLocaleString()
 }
 
-export function getSymbol (value) {
+export function getSymbol(value) {
   if (value > 0) {
     return '+'
   } else if (value < 0) {
@@ -65,7 +65,7 @@ export function getSymbol (value) {
   return ''
 }
 
-export function getJudgement (value) {
+export function getJudgement(value) {
   if (value > 0) {
     return '多く払っています'
   } else if (value < 0) {
@@ -74,7 +74,7 @@ export function getJudgement (value) {
   return 'ちょうどよいです'
 }
 
-export function copy (string) {
+export function copy(string) {
   const div = document.createElement('div')
   const pre = document.createElement('pre')
   pre.style.webkitUserSelect = 'auto'

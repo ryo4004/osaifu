@@ -1,7 +1,14 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { setConnectMode, requestConnectPass, requestCopy, changeConnectPass, requestConnect, setError } from '../../../../Actions/Actions/Setting'
+import {
+  setConnectMode,
+  requestConnectPass,
+  requestCopy,
+  changeConnectPass,
+  requestConnect,
+  setError,
+} from '../../../../Actions/Actions/Setting'
 import { setTitle, setBack } from '../../../../Actions/Actions/Header'
 
 import * as lib from '../../../../Library/Library'
@@ -12,7 +19,7 @@ const mapStateToProps = (state) => ({
   connectMode: state.setting.connectMode,
   connectPassStatus: state.setting.connectPassStatus,
   connectPass: state.setting.connectPass,
-  err: state.setting.err
+  err: state.setting.err,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -23,14 +30,24 @@ const mapDispatchToProps = (dispatch) => ({
   requestConnect: () => dispatch(requestConnect()),
   setTitle: (title) => dispatch(setTitle(title)),
   setBack: (back) => dispatch(setBack(back)),
-  setError: (err) => dispatch(setError(err))
+  setError: (err) => dispatch(setError(err)),
 })
 
 const Connect = ({
-  loading, connectMode, connectPassStatus, connectPass, err,
-  setConnectMode, requestConnectPass, requestCopy, changeConnectPass, requestConnect, setTitle, setBack, setError
+  loading,
+  connectMode,
+  connectPassStatus,
+  connectPass,
+  err,
+  setConnectMode,
+  requestConnectPass,
+  requestCopy,
+  changeConnectPass,
+  requestConnect,
+  setTitle,
+  setBack,
+  setError,
 }) => {
-
   useEffect(() => {
     setConnectMode(true)
     setTitle('おさいふ共有設定')
@@ -50,12 +67,12 @@ const Connect = ({
     if (connectMode) {
       return (
         <div>
-          <div className='text'>
+          <div className="text">
             <p>他のユーザーとおさいふを共有できます。</p>
             <p>既に入力されている記録は合算されます。</p>
             <p>パスの発行は何度でもできます。</p>
           </div>
-          <div className='form'>
+          <div className="form">
             <button onClick={() => requestConnectPass()}>{loading ? '読み込み中' : 'パス取得'}</button>
           </div>
         </div>
@@ -63,12 +80,17 @@ const Connect = ({
     } else {
       return (
         <div>
-          <div className='text'>
+          <div className="text">
             <p>共有するユーザーが発行したパスを入力してください。</p>
           </div>
-          <div className='form'>
+          <div className="form">
             <label>共有パスを入力してください</label>
-            <input type='text' value={connectPass} onChange={(e) => changeConnectPass(e.target.value)} onKeyPress={(e) => keyPress(e)} />
+            <input
+              type="text"
+              value={connectPass}
+              onChange={(e) => changeConnectPass(e.target.value)}
+              onKeyPress={(e) => keyPress(e)}
+            />
             {showError()}
             <button onClick={() => requestConnect()}>{loading ? '読み込み中' : '送信'}</button>
           </div>
@@ -79,11 +101,24 @@ const Connect = ({
 
   const showConnectPass = () => {
     if (!connectPassStatus || !connectMode) return false
-    const expire = lib.unixDateTime(connectPassStatus.expire).split('T')[0].replace(/-/g, '/') + ' ' + lib.unixDateTime(connectPassStatus.expire).split('T')[1].split(':')[0] + ':' + lib.unixDateTime(connectPassStatus.expire).split('T')[1].split(':')[1]
+    const expire =
+      lib.unixDateTime(connectPassStatus.expire).split('T')[0].replace(/-/g, '/') +
+      ' ' +
+      lib.unixDateTime(connectPassStatus.expire).split('T')[1].split(':')[0] +
+      ':' +
+      lib.unixDateTime(connectPassStatus.expire).split('T')[1].split(':')[1]
     return (
-      <div className='connect-pass'>
-        <div className='pass'><span>{connectPassStatus.connectPass}</span><div onClick={() => requestCopy(connectPassStatus.connectPass)}><i className='far fa-copy'></i></div></div>
-        <div className='expire'><label>有効期限(1日間)</label><div>{expire}まで</div></div>
+      <div className="connect-pass">
+        <div className="pass">
+          <span>{connectPassStatus.connectPass}</span>
+          <div onClick={() => requestCopy(connectPassStatus.connectPass)}>
+            <i className="far fa-copy"></i>
+          </div>
+        </div>
+        <div className="expire">
+          <label>有効期限(1日間)</label>
+          <div>{expire}まで</div>
+        </div>
       </div>
     )
   }
@@ -109,17 +144,18 @@ const Connect = ({
       default:
         message = 'error: ' + err.type
     }
-    return (
-      <div className='err'>{message}</div>
-    )
+    return <div className="err">{message}</div>
   }
 
-
   return (
-    <div className='setting-connect'>
-      <div className='switch'>
-        <div onClick={() => setConnectMode(true)} className={connectMode ? 'active' : ''}>パス発行</div>
-        <div onClick={() => setConnectMode(false)} className={connectMode ? '' : 'active'}>パス入力</div>
+    <div className="setting-connect">
+      <div className="switch">
+        <div onClick={() => setConnectMode(true)} className={connectMode ? 'active' : ''}>
+          パス発行
+        </div>
+        <div onClick={() => setConnectMode(false)} className={connectMode ? '' : 'active'}>
+          パス入力
+        </div>
       </div>
       {showForm()}
       {showConnectPass()}

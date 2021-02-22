@@ -10,10 +10,10 @@ import { setModal } from '../Actions/Actions/Tutorial'
 
 import * as lib from '../Library/Library'
 
-function* runRequestSignup () {
+function* runRequestSignup() {
   const state = yield select()
-  if (!state.signup.userid || !state.signup.password) return yield put(setError({type: 'blankTextbox'}))
-  if (!state.signup.agreement) return yield put(setError({type: 'notAgreement'}))
+  if (!state.signup.userid || !state.signup.password) return yield put(setError({ type: 'blankTextbox' }))
+  if (!state.signup.agreement) return yield put(setError({ type: 'notAgreement' }))
   yield put(loading(true))
   yield put(setError(false))
   const send = {
@@ -21,7 +21,7 @@ function* runRequestSignup () {
     password: state.signup.password,
     clientid: lib.getClientid(),
     userAgent: window.navigator.userAgent,
-    version: lib.version
+    version: lib.version,
   }
   const res = yield call(() => post('/signup', send))
   yield put(loading(false))
@@ -40,6 +40,6 @@ function* runRequestSignup () {
   }
 }
 
-export default function* watchRequestSignup () {
+export default function* watchRequestSignup() {
   yield takeLatest(ActionType.SIGNUP_REQUEST_SIGNUP_REQUEST, runRequestSignup)
 }

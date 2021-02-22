@@ -12,24 +12,17 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = () => ({})
 
 const Toast = ({ status, message, hide }) => {
-
   const showToast = () => {
     if (!status) return <div></div>
     const className = hide ? 'toast hide' : 'toast'
     return (
       <div className={className}>
-        <div>
-          {message}
-        </div>
+        <div>{message}</div>
       </div>
     )
   }
 
-  return (
-    <React.Fragment>
-      {showToast()}
-    </React.Fragment>
-  )
+  return <React.Fragment>{showToast()}</React.Fragment>
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Toast)

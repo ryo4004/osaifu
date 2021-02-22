@@ -2,12 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import {
-  changeUserid,
-  changePassword,
-  requestLogin,
-  setError
-} from '../../../Actions/Actions/Login'
+import { changeUserid, changePassword, requestLogin, setError } from '../../../Actions/Actions/Login'
 
 import './Login.scss'
 
@@ -15,21 +10,17 @@ const mapStateToProps = (state) => ({
   loading: state.login.loading,
   userid: state.login.userid,
   password: state.login.password,
-  err: state.login.err
+  err: state.login.err,
 })
 
 const mapDispatchToProps = (dispatch) => ({
   changeUserid: (userid) => dispatch(changeUserid(userid)),
   changePassword: (password) => dispatch(changePassword(password)),
   requestLogin: () => dispatch(requestLogin.request()),
-  setError: (err) => dispatch(setError(err))
+  setError: (err) => dispatch(setError(err)),
 })
 
-const Login = ({
-  loading, userid, password, err,
-  changeUserid, changePassword, requestLogin, setError
-}) => {
-
+const Login = ({ loading, userid, password, err, changeUserid, changePassword, requestLogin, setError }) => {
   useEffect(() => {
     setError(false)
     return () => setError(false)
@@ -59,22 +50,29 @@ const Login = ({
       default:
         message = 'error: ' + err.type
     }
-    return (
-      <div className='err'>{message}</div>
-    )
+    return <div className="err">{message}</div>
   }
 
   const buttonLabel = loading ? '読み込み中' : 'ログイン'
 
   return (
-    <div className='login'>
+    <div className="login">
       <div>
         <h2>ログイン</h2>
-        <input type='text' value={userid} onChange={(e) => changeUserid(e.target.value)} placeholder='ユーザ名' />
-        <input type='password' value={password} onChange={(e) => changePassword(e.target.value)} placeholder='パスワード' />
+        <input type="text" value={userid} onChange={(e) => changeUserid(e.target.value)} placeholder="ユーザ名" />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => changePassword(e.target.value)}
+          placeholder="パスワード"
+        />
         {showError()}
-        <button onClick={() => requestLogin()} onTouchStart={() => {}}>{buttonLabel}</button>
-        <div className='add-account'>アカウントの作成は<Link to='/signup'>こちら</Link></div>
+        <button onClick={() => requestLogin()} onTouchStart={() => {}}>
+          {buttonLabel}
+        </button>
+        <div className="add-account">
+          アカウントの作成は<Link to="/signup">こちら</Link>
+        </div>
       </div>
     </div>
   )
