@@ -1,0 +1,313 @@
+.list {
+  max-width: 600px;
+  margin: 8px auto;
+
+  .loading {
+    position: absolute;
+    display: inline-block;
+    margin: 0 8px;
+    font-size: .8rem;
+  }
+
+  .summary {
+    max-width: 600px;
+    margin: 0 auto;
+
+    details {
+      margin: 8px;
+
+      &[open] {
+        background: rgba(243,115,53,.2);
+        border-radius: 0 0 .25rem .25rem;
+
+        & summary > div {
+          background: rgba(243,115,53,.7);
+          border-radius: .25rem .25rem 0 0;
+
+          & > label {
+            svg {
+              &.open {
+                display: none;
+              }
+
+              &.close {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+
+      summary {
+        list-style: none;
+
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        & > div {
+          margin: 0;
+          padding: 8px 8px;
+          border-radius: .25rem;
+          background: rgba(243,115,53,.6);
+          cursor: pointer;
+
+          display: flex;
+          align-items: center;
+
+          &:hover {
+            background: rgba(243,115,53,.7);
+          }
+
+          label {
+            svg {
+              width: 32px;
+              height: 32px;
+              fill: #fff;
+
+              &.open {
+                display: block;
+              }
+
+              &.close {
+                display: none;
+              }
+            }
+          }
+
+          & > div {
+            flex: 2;
+            text-align: right;
+
+            & > div {
+              font-size: 1.6rem;
+              font-weight: bold;
+              color: #fff;
+
+              span {
+                padding-left: .2em;
+                font-size: .8em;
+              }
+            }
+
+            p {
+              font-size: .8rem;
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      & > div {
+        padding: 8px 0;
+
+        & > div {
+          margin: 0 8px;
+
+          display: flex;
+          align-items: center;
+
+          label {
+            font-size: .9rem;
+            color: #666;
+          }
+
+          & > div {
+            flex: 2;
+            text-align: right;
+            font-size: 1.1rem;
+
+            span {
+              padding-left: .2em;
+              font-size: .8em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  label.history {
+    display: block;
+    margin: 8px;
+    font-size: .9rem;
+    color: #333;
+  }
+
+  .no-data {
+    margin: 32px 0;
+    text-align: center;
+    font-size: .9rem;
+    color: #666;
+  }
+
+  ol.list {
+    max-width: 600px;
+    margin: 0 auto;
+
+    details {
+
+      &[open] {
+        background: #eee;
+
+        & > summary > div > label {
+          svg {
+            &.open {
+              display: none;
+            }
+
+            &.close {
+              display: block;
+            }
+          }
+        }
+      }
+
+      summary {
+        display: block;
+        cursor: pointer;
+        list-style: none;
+
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        // div で囲むのは iOS Safari 対策
+        & > div {
+          padding: 6px 8px;
+          min-height: 40px;
+          display: flex;
+          align-items: center;
+
+          label {
+            svg {
+              width: 24px;
+              height: 24px;
+              fill: #ccc;
+
+              &.open {
+                display: block;
+              }
+
+              &.close {
+                display: none;
+              }
+            }
+          }
+
+          .date {
+            display: inline-block;
+            margin: 8px;
+            border-radius: 6px;
+            font-size: .9rem;
+          }
+
+          & > div {
+            flex: 2;
+            text-align: right;
+
+            span {
+              padding-left: .2em;
+              font-size: .8em;
+            }
+          }
+        }
+
+        &:hover {
+          background: #eee;
+        }
+      }
+
+
+      ol {
+
+        li {
+          padding: 8px;
+
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          &:hover {
+            background: #ddd;
+          }
+
+          .date {
+            padding: 2px 6px;
+            margin-right: 6px;
+            border: .55px solid #ddd;
+            border-radius: 6px;
+            background: #ddd;
+            color: #333;
+            font-size: .8rem;
+            text-align: center;
+          }
+
+          .date-disable {
+            position: relative;
+            margin-right: 6px;
+
+            span:first-child {
+              padding: 2px 6px;
+              border: .55px solid;
+              border-radius: 6px;
+              font-size: .8rem;
+              visibility: hidden;
+            }
+
+            span:last-child {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              padding: 2px 6px;
+              border: .55px solid #ddd;
+              border-radius: 6px;
+              background: #ddd;
+              color: #888;
+              text-align: center;
+              font-size: .8rem;
+            }
+          }
+
+          .paid {
+            width: 40px;
+            margin: 0 6px 0 0;
+            padding: 2px 6px;
+            border: .55px solid #ccc;
+            border-radius: 6px;
+            background: #fff;
+            color: #333;
+            font-size: .8rem;
+
+            &.self {
+              background: #ccc;
+              color: #333;
+            }
+          }
+
+          .paid.pair {
+            background: linear-gradient(#ccc, #ccc) no-repeat #fff;
+            color: #333;
+
+            span:last-child {
+              margin-left: 6px;
+            }
+          }
+
+          .payment {
+            flex: 2;
+            text-align: right;
+            font-size: 1.6rem;
+
+            span {
+              padding-left: .2em;
+              font-size: .8em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
